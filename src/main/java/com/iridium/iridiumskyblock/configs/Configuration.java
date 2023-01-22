@@ -25,9 +25,9 @@ import java.util.Map;
 public class Configuration {
 
     public String prefix = "<GRADIENT:09C6F9>&lBones Skyblock</GRADIENT:045DE9> &8»";
-    public String worldName = "IridiumSkyblock";
+    public String worldName = "BoneSkyblock";
     public String islandCreateTitle = "&b&lIsland Created";
-    public String islandCreateSubTitle = "&7IridiumSkyblock by Peaches_MLG";
+    public String islandCreateSubTitle = "&7Bones Skyblock By The Bones Network";
     public String dateTimeFormat = "EEEE, MMMM dd HH:mm:ss";
     public String spawnWorldName = "world";
     public String defaultCommandSyntax = "/is %command%";
