@@ -3,8 +3,10 @@ package com.iridium.iridiumskyblock.listeners;
 import com.iridium.iridiumskyblock.IridiumSkyblock;
 import com.iridium.iridiumskyblock.database.Island;
 import com.iridium.iridiumskyblock.database.User;
+import com.iridium.iridiumskyblock.utils.CompassMeta;
 import com.iridium.iridiumskyblock.utils.LocationUtils;
 import com.iridium.iridiumskyblock.utils.PlayerUtils;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -14,8 +16,14 @@ import java.util.Optional;
 
 public class PlayerRespawnListener implements Listener {
 
+    CompassMeta compassMeta = new CompassMeta();
     @EventHandler
     public void onRespawn(PlayerRespawnEvent event) {
+        Player player = event.getPlayer();
+        compassMeta.IslandMenuCompass(player);
+
+        IridiumSkyblock.getInstance().getLogger().info("PlayerDropItem "+ player.getName());
+
         if (IridiumSkyblock.getInstance().getConfiguration().respawnOnIsland) {
             User user = IridiumSkyblock.getInstance().getUserManager().getUser(event.getPlayer());
             user.getIsland().ifPresent(island -> {

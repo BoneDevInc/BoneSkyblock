@@ -8,10 +8,14 @@ import com.iridium.iridiumskyblock.database.Island;
 import com.iridium.iridiumskyblock.database.User;
 import com.iridium.iridiumskyblock.gui.InventoryConfigGUI;
 import com.iridium.iridiumskyblock.managers.CooldownProvider;
+import com.iridium.iridiumskyblock.utils.PlayerUtils;
 import com.iridium.iridiumskyblock.utils.TimeUtils;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -97,6 +101,21 @@ public class CommandManager implements CommandExecutor, TabCompleter {
      */
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, org.bukkit.command.@NotNull Command cmd, @NotNull String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("lobby")) {
+            if (commandSender instanceof Player) {
+                Player player = (Player) commandSender;
+                PlayerUtils.teleportSpawn(player);
+            }
+            return true;
+        }
+        if (cmd.getName().equalsIgnoreCase("home")) {
+            if (commandSender instanceof Player) {
+                Player player = (Player) commandSender;
+                player.performCommand("is home");
+            }
+            return true;
+        }
+
         if (args.length == 0) {
             if (commandSender instanceof Player) {
                 Player player = (Player) commandSender;

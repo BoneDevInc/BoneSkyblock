@@ -18,3 +18,7 @@ commands:
   iridiumskyblock:
     aliases: [ "island", is ]
     description: Main plugin command
+  lobby:
+    description: Go to the skyblock lobby
+  home:
+    description: Go to your skyblock island

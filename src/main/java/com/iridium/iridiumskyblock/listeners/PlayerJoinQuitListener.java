@@ -3,14 +3,21 @@ package com.iridium.iridiumskyblock.listeners;
 import com.iridium.iridiumcore.utils.StringUtils;
 import com.iridium.iridiumskyblock.IridiumSkyblock;
 import com.iridium.iridiumskyblock.database.User;
+import com.iridium.iridiumskyblock.utils.CompassMeta;
 import com.iridium.iridiumskyblock.utils.PlayerUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class PlayerJoinQuitListener implements Listener {
+
+    CompassMeta compassMeta = new CompassMeta();
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
@@ -21,6 +28,10 @@ public class PlayerJoinQuitListener implements Listener {
         // Update the internal username in case of name change
         user.setName(event.getPlayer().getName());
 
+        IridiumSkyblock.getInstance().getLogger().info("PlayerJoin "+ player.getName());
+
+        compassMeta.IslandMenuCompass(player);
+
         // Send their island border
         IridiumSkyblock.getInstance().getIslandManager().getIslandViaPlayerLocation(player).ifPresent(island ->
                 PlayerUtils.sendBorder(player, island)
@@ -28,7 +39,7 @@ public class PlayerJoinQuitListener implements Listener {
 
         if (player.isOp() && IridiumSkyblock.getInstance().getConfiguration().patreonMessage) {
             Bukkit.getScheduler().runTaskLater(IridiumSkyblock.getInstance(), () ->
-                            player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getConfiguration().prefix + " &7Thanks for using IridiumSkyblock, if you like the plugin, consider donating at &bwww.patreon.com/Peaches_MLG"))
+                            player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getConfiguration().prefix + "Welcome To BoneSkyblock"))
                     , 5);
         }
     }
