@@ -6,4 +6,4 @@ IridiumSkyblock is a powerful skyblock plugin with Island Upgrades, boosters, mi
 
 ## Support
 
-If you encounter any issues while using the plugin, feel free to join our support Discord: [https://discord.gg/6HJ73mWE7P](https://discord.gg/6HJ73mWE7P).
+If you encounter any issues while using the plugin deal with it this isnt for other people use cases.
