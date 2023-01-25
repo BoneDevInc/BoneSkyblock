@@ -22,8 +22,6 @@ public class PlayerRespawnListener implements Listener {
         Player player = event.getPlayer();
         compassMeta.IslandMenuCompass(player);
 
-        IridiumSkyblock.getInstance().getLogger().info("PlayerDropItem "+ player.getName());
-
         if (IridiumSkyblock.getInstance().getConfiguration().respawnOnIsland) {
             User user = IridiumSkyblock.getInstance().getUserManager().getUser(event.getPlayer());
             user.getIsland().ifPresent(island -> {

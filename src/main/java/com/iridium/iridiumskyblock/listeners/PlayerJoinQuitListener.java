@@ -28,7 +28,7 @@ public class PlayerJoinQuitListener implements Listener {
         // Update the internal username in case of name change
         user.setName(event.getPlayer().getName());
 
-        IridiumSkyblock.getInstance().getLogger().info("PlayerJoin "+ player.getName());
+
 
         compassMeta.IslandMenuCompass(player);
 

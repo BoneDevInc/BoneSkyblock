@@ -44,8 +44,6 @@ public class PlayerInteractListener implements Listener {
         Player player = event.getPlayer();
         User user = IridiumSkyblock.getInstance().getUserManager().getUser(player);
 
-        IridiumSkyblock.getInstance().getLogger().info("PlayerInteract "+ player.getName());
-
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             ItemStack item = event.getItem();
             if (item != null && item.getType() == Material.COMPASS && item.hasItemMeta() && item.getItemMeta().getDisplayName().equals("Island Menu")) {

@@ -23,9 +23,6 @@ public class PlayerDropItemListener implements Listener {
         Optional<Island> island = IridiumSkyblock.getInstance().getIslandManager().getIslandViaLocation(event.getItemDrop().getLocation());
         ItemStack item = event.getItemDrop().getItemStack();
 
-        Player player = event.getPlayer();
-        IridiumSkyblock.getInstance().getLogger().info("PlayerDropItem "+ player.getName());
-
         if (item.getType() == Material.COMPASS && item.hasItemMeta() && item.containsEnchantment(Enchantment.ARROW_DAMAGE)) {
             event.setCancelled(true);
         }

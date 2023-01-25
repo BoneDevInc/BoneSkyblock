@@ -1,9 +1,9 @@
-name: IridiumSkyblock
+name: BoneSkyblock
 version: ${version}
-description: Skyblock Redefined
+description: Boneblock Redefined
 main: com.iridium.iridiumskyblock.IridiumSkyblock
 api-version: '1.13'
-author: Peaches_MLG
+author: BonesMgee, DEV_DED
 depend: [ Vault ]
 softdepend:
   - "MVdWPlaceholderAPI"
